@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const express = require ('express');
 const {WebhookClient} = require('dialogflow-fulfillment');
 process.env.DEBUG = 'dialogflow:debug';
 const port = process.env.PORT || 5000;
-const app = express();
+const app = express().use(bodyParser.json());
 
 require('./mongoose');   // Database
 require('./model/post'); // Schema
